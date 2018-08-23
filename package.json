@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "preinstall": "npm i -g inquirer"
+    "preinstall": "npm i -g inquirer chalk clear figlet"
   },
   "keywords": [
     "generator",
@@ -19,6 +19,9 @@
   "author": "Antony Nguyen <antony.nguyen0901@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^2.4.1",
+    "clear": "^0.1.0",
+    "figlet": "^1.2.0",
     "inquirer": "^6.1.0"
   },
   "bin": {
