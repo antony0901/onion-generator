@@ -1,0 +1,69 @@
+{
+  "name": "onion",
+  "private": true,
+  "version": "0.0.1",
+  "description": "an application of onion",
+  "keywords": [
+    "360f",
+    "nodejs",
+    "insurance",
+    "wealth"
+  ],
+  "scripts": {
+    "start": "node ./src/api/app.js --prod --no-grunt",
+    "test": "mocha"
+  },
+  "main": "./src/api/app.js",
+  "dependencies": {
+    "@sailshq/connect-redis": "^3.2.1",
+    "@sailshq/lodash": "^3.10.3",
+    "@sailshq/socket.io-redis": "^5.2.0",
+    "async": "2.0.1",
+    "awilix": "^3.0.8",
+    "bcrypt": "^2.0.0",
+    "crypto": "^1.0.1",
+    "grunt": "1.0.1",
+    "joi": "^13.6.0",
+    "jsonwebtoken": "^8.3.0",
+    "lodash": "^4.17.10",
+    "md5": "^2.2.1",
+    "moment": "^2.22.2",
+    "mysql2": "^1.5.3",
+    "nexmo": "^2.3.2",
+    "nodemailer": "^4.6.7",
+    "nodemailer-plugin-inline-base64": "^2.1.1",
+    "nonce": "^1.0.4",
+    "nools": "^0.4.4",
+    "passport": "^0.4.0",
+    "passport-facebook": "^2.1.1",
+    "passport-facebook-token": "^3.3.0",
+    "redis": "^2.8.0",
+    "request": "^2.87.0",
+    "sails": "^1.0.2",
+    "sails-hook-grunt": "^3.0.2",
+    "sails-hook-orm": "^2.0.0-16",
+    "sails-hook-sockets": "^1.4.0",
+    "sequelize": "^4.37.10",
+    "skipper": "^0.8.5",
+    "tcomb": "^3.2.27",
+    "winston": "^3.0.0"
+  },
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "mocha": "^5.2.0",
+    "standard": "^11.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:360ftech/wms-backend.git"
+  },
+  "author": "360f",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://360ftech.atlassian.net"
+  },
+  "homepage": "https://360ftech.atlassian.net",
+  "engines": {
+    "node": ">=8.11"
+  }
+}

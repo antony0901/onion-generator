@@ -1,0 +1,26 @@
+{
+  "name": "onion-generator",
+  "version": "0.1.0",
+  "description": "a tools to helps generating a NodeJS regarding Onion Architecture",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "generator",
+    "nodejs",
+    "sails",
+    "onion"
+  ],
+  "author": "Antony Nguyen <antony.nguyen@unicorn.vn>",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^6.1.0"
+  },
+  "bin": {
+    "onion-generate": "./index.js"
+  }
+}
