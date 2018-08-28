@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "preinstall": "npm i -g inquirer chalk clear figlet"
+    "preinstall": "npm i -g commander inquirer chalk clear figlet"
   },
   "keywords": [
     "generator",
@@ -21,10 +21,11 @@
   "dependencies": {
     "chalk": "^2.4.1",
     "clear": "^0.1.0",
+    "commander": "^2.17.1",
     "figlet": "^1.2.0",
     "inquirer": "^6.1.0"
   },
   "bin": {
-    "onion-generate": "./index.js"
+    "onion-generator": "./onion-generator.js"
   }
 }
