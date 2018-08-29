@@ -9,6 +9,7 @@ const figlet = require('figlet');
 const CURR_DIR = process.cwd();
 
 function createDirectoryContents(templatePath, projectName, newProjectPath) {
+  const cleanedProjectName = projectName.replace('-', '_');
   const filesToCreate = fs.readdirSync(templatePath);
   filesToCreate.forEach(file => {
     const origFilePath = `${templatePath}/${file}`;
@@ -16,9 +17,9 @@ function createDirectoryContents(templatePath, projectName, newProjectPath) {
     const stats = fs.lstatSync(origFilePath);
     if (stats.isFile()) {
       let contents = fs.readFileSync(origFilePath, 'utf8');
-      const replaceContent = contents.replace('PROJECT_NAME', projectName);
+      const replaceContent = contents.replace('PROJECT_NAME', cleanedProjectName);
       if (file === '.npmignore') file = '.gitignore';
-      if(file === 'PROJECT_NAME.csproj') file = `${projectName}.csproj`;
+      if(file === 'PROJECT_NAME.csproj') file = `${cleanedProjectName}.csproj`;
 
       const writePath = `${CURR_DIR}/${newProjectPath}/${file}`;
       fs.writeFileSync(writePath, replaceContent, 'utf8');

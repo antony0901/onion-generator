@@ -27,5 +27,13 @@
   },
   "bin": {
     "onion-generator": "./onion-generator.js"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antony0901/onion-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/antony0901/onion-generator/issues"
+  },
+  "homepage": "https://github.com/antony0901/onion-generator#readme"
 }
