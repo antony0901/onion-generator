@@ -8,7 +8,7 @@ const figlet = require('figlet');
 
 const CURR_DIR = process.cwd();
 
-function createDirectoryContents(templatePath, newProjectPath) {
+function createDirectoryContents(templatePath, projectName, newProjectPath) {
   const filesToCreate = fs.readdirSync(templatePath);
   filesToCreate.forEach(file => {
     const origFilePath = `${templatePath}/${file}`;
@@ -16,13 +16,15 @@ function createDirectoryContents(templatePath, newProjectPath) {
     const stats = fs.lstatSync(origFilePath);
     if (stats.isFile()) {
       let contents = fs.readFileSync(origFilePath, 'utf8');
-
+      const replaceContent = contents.replace('PROJECT_NAME', projectName);
       if (file === '.npmignore') file = '.gitignore';
+      if(file === 'PROJECT_NAME.csproj') file = `${projectName}.csproj`;
+
       const writePath = `${CURR_DIR}/${newProjectPath}/${file}`;
-      fs.writeFileSync(writePath, contents, 'utf8');
+      fs.writeFileSync(writePath, replaceContent, 'utf8');
     } else if (stats.isDirectory()) {
       fs.mkdirSync(`${CURR_DIR}/${newProjectPath}/${file}`);
-      createDirectoryContents(`${templatePath}/${file}`, `${newProjectPath}/${file}`);
+      createDirectoryContents(`${templatePath}/${file}`, projectName, `${newProjectPath}/${file}`);
     }
   });
 }
@@ -65,6 +67,6 @@ module.exports.generate = () => {
     const templatePath = `${__dirname}/templates/${projectChoice}`;
 
     fs.mkdirSync(`${CURR_DIR}/${projectName}`);
-    createDirectoryContents(templatePath, projectName);
+    createDirectoryContents(templatePath, projectName, projectName);
   });
 };
