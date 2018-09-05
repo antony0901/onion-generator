@@ -17,7 +17,7 @@ function createDirectoryContents(templatePath, projectName, newProjectPath) {
     const stats = fs.lstatSync(origFilePath);
     if (stats.isFile()) {
       let contents = fs.readFileSync(origFilePath, 'utf8');
-      const replaceContent = contents.replace('PROJECT_NAME', cleanedProjectName);
+      const replaceContent = contents.replace(/PROJECT_NAME/g, cleanedProjectName);
       if (file === '.npmignore') file = '.gitignore';
       if(file === 'PROJECT_NAME.csproj') file = `${cleanedProjectName}.csproj`;
 
