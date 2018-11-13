@@ -1,19 +1,17 @@
 {
-  "name": "onion",
+  "name": "PROJECT_NAME",
   "private": true,
   "version": "0.0.1",
-  "description": "an application of onion",
+  "description": "",
   "keywords": [
-    "360f",
     "nodejs",
-    "insurance",
-    "wealth"
+    "onion architecture"
   ],
   "scripts": {
-    "start": "node ./src/api/app.js --prod --no-grunt",
+    "start": "node ./src/web/app.js --prod --no-grunt",
     "test": "mocha"
   },
-  "main": "./src/api/app.js",
+  "main": "./src/web/app.js",
   "dependencies": {
     "@sailshq/connect-redis": "^3.2.1",
     "@sailshq/lodash": "^3.10.3",
@@ -53,16 +51,7 @@
     "mocha": "^5.2.0",
     "standard": "^11.0.1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@bitbucket.org:360ftech/wms-backend.git"
-  },
-  "author": "360f",
   "license": "ISC",
-  "bugs": {
-    "url": "https://360ftech.atlassian.net"
-  },
-  "homepage": "https://360ftech.atlassian.net",
   "engines": {
     "node": ">=8.11"
   }

@@ -22,12 +22,12 @@ services:
     ports:
       - 6379
 
-  api:
-    image: api
+  web:
+    image: web
     build: .
-    container_name: api
+    container_name: web
     env_file:
-      - ./api.env
+      - ./web.env
     environment:
       NODE_ENV: production
       REDIS_URL: redis://cache

@@ -33,14 +33,9 @@ const CustomerStatus = {
 };
 
 const Directories = {
-  Application: 'application',
-  Portfolio: 'portfolio',
-  Product: 'product',
-  Resource: 'resource',
 };
 
 module.exports = {
-  CustomerTypes,
   CustomerStatus,
   Directories,
   LogTypes,
