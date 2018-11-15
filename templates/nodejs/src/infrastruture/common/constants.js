@@ -1,5 +1,5 @@
 const Modules = {
-  
+  Identities: 'identities',
 };
 
 const Repos = {
@@ -7,7 +7,7 @@ const Repos = {
 };
 
 const Services = {
-  
+  Identity: 'identity-services',
 };
 
 const ServiceAgents = {

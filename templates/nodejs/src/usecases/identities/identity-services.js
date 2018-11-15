@@ -1,5 +1,4 @@
 const doPassword = require('./do-password');
-const logHandler = require('./log.js');
 
 class IdentityServices {
   constructor(dbContext, logger) {
@@ -13,17 +12,10 @@ class IdentityServices {
   }) {
     return new Promise((resolve, reject) => {
       doPassword(this.dbContext, {
-        tenantId,
         email,
         password
       }).then((user) => {
-        logHandler.log(this.dbContext, {
-          tenantId: tenantId,
-          userId: user.id,
-          metadata: metadata
-        }).then(() => {
-          resolve(user);
-        });
+        resolve(user);
       }).catch((err) => {
         reject(err);
       });

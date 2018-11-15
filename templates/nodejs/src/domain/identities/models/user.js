@@ -1,17 +1,68 @@
-const t = require('tcomb');
+const {
+  UUID,
+  STRING,
+  BOOLEAN,
+  DATE
+} = require('sequelize');
+const UniqueId = require('../../../infrastruture/helpers/unique-id');
+const _ = require('lodash');
 
-const User = t.struct({
-  id: t.maybe(t.String),
-  name: t.maybe(t.String),
-  email: t.String,
-  password: t.maybe(t.String),
-  loginProvider: t.maybe(t.String),
-  loginKey: t.maybe(t.String),
-  isExternalUser: t.maybe(t.Boolean),
-  isActive: t.maybe(t.Boolean),
-  roles: t.maybe(t.Array),
-  createdAt: t.maybe(t.Date),
-  updatedAt: t.maybe(t.Date)
-});
+module.exports = (sequelize) => {
+  const User = sequelize.define('user', {
+    id: {
+      type: UUID,
+      defaultValue: () => {
+        return UniqueId.generate();
+      },
+      primaryKey: true
+    },
+    name: {
+      type: STRING,
+      allowNull: true,
+    },
+    email: {
+      type: STRING,
+      allowNull: true
+    },
+    password: {
+      type: STRING,
+      allowNull: true
+    },
+    loginProvider: {
+      type: STRING,
+      allowNull: true,
+    },
+    loginKey: {
+      type: STRING,
+      allowNull: true,
+    },
+    isExternalUser: {
+      type: BOOLEAN,
+      allowNull: false
+    },
+    leadStatus: {
+      type: STRING,
+      allowNull: true
+    },
+    isActive: {
+      type: BOOLEAN,
+      allowNull: true
+    },
+    createdAt: {
+      type: DATE,
+      defaultValue: () => {
+        return new Date();
+      },
+      allowNull: false,
+    },
+    updatedAt: {
+      type: DATE,
+      defaultValue: () => {
+        return new Date();
+      },
+      allowNull: true,
+    },
+  });
 
-module.exports = User;
+  return User;
+};

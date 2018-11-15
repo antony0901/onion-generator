@@ -44,6 +44,7 @@
     "sequelize": "^4.37.10",
     "skipper": "^0.8.5",
     "tcomb": "^3.2.27",
+    "uuid": "^3.3.2",
     "winston": "^3.0.0"
   },
   "devDependencies": {
