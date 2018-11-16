@@ -1,0 +1,58 @@
+version: '3'
+
+services:
+  db:
+    build: ./src/interfaces/database
+    container_name: db
+    env_file:
+      - ./db.env
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - backend
+    restart: always
+    ports:
+      - 3306:3306
+      
+  cache:
+    image: redis
+    container_name: cache
+    networks:
+      - backend
+    ports:
+      - 6379
+
+  web:
+    image: web
+    build: .
+    container_name: web
+    env_file:
+      - ./web.env
+    environment:
+      NODE_ENV: production
+      REDIS_URL: redis://cache
+    volumes: 
+      - api-storage:/app/src/storages
+    ports:
+      - 8040:8040
+    depends_on:
+      - db
+    networks: 
+      - backend
+    restart: always
+
+  migration:  
+    build: ./src/interfaces/database/migrations
+    container_name: migration
+    env_file:
+      - ./db.env
+    networks: 
+      - backend
+    depends_on:
+      - db
+  
+volumes:
+  db-data:
+  api-storage:
+networks: 
+  backend:

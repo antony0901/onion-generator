@@ -42,7 +42,8 @@ module.exports.generate = () => {
 
   const PROJECT_TYPES = [
     'nodejs',
-    'angular2'
+    'angular2',
+    'graphql'
   ];
 
   const QUESTIONS = [{
