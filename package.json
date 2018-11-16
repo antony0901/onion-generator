@@ -1,6 +1,6 @@
 {
   "name": "onion-generator",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "a tools to helps generating a NodeJS regarding Onion Architecture",
   "main": "index.js",
   "directories": {
